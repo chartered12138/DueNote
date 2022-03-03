@@ -45,8 +45,10 @@ class DetailViewController: UIViewController {
                 }else{
                     if(detail.dueDate-Date().toSeconds()<=0){
                         time.textColor = .systemRed
+                    }else if(detail.dueDate-Date().toSeconds()<=10800){
+                        time.textColor = .systemOrange
                     }else{
-                        time.textColor = .black
+                        time.textColor = .label
                     }
                 }
                 

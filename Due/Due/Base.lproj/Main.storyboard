@@ -133,7 +133,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Note Details" id="zgj-cQ-jm9"/>
+                    <navigationItem key="navigationItem" title="Due Details" id="zgj-cQ-jm9"/>
                     <connections>
                         <outlet property="noteDate" destination="P0J-el-NgC" id="KOy-lC-l6N"/>
                         <outlet property="noteTextTextView" destination="tqy-ef-7jF" id="bVD-BQ-s0k"/>
@@ -150,7 +150,7 @@
             <objects>
                 <viewController id="raP-E6-mT4" customClass="NoteCreateChangeViewController" customModule="Due" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8QZ-nL-BjP">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ceT-ga-e42">
@@ -268,7 +268,7 @@
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="kdQ-PW-hhD" customClass="MasterViewController" customModule="Due" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9TX-xe-W3j">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -356,7 +356,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="31T-QN-Jgm"/>
-        <segue reference="EbY-wr-f2Q"/>
+        <segue reference="0dN-s6-dAu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>

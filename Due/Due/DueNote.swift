@@ -5,7 +5,6 @@
 //  Created by Shaoquan Qin on 2022/2/21.
 //
 
-//https://medium.com/thecodinghype/creating-a-simple-note-taking-app-for-ios-in-swift-66dcbfe05a30
 import Foundation
 
 class DueNote {

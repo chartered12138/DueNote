@@ -137,8 +137,10 @@ class MasterViewController: UITableViewController {
             }else{
                 if(object.dueDate-Date().toSeconds()<=0){
                     cell.timeRemainingLabel!.textColor = .systemRed
+                }else if(object.dueDate-Date().toSeconds()<=10800){
+                    cell.timeRemainingLabel!.textColor = .systemOrange
                 }else{
-                    cell.timeRemainingLabel!.textColor = .black
+                    cell.timeRemainingLabel!.textColor = .label
                 }
             }
             cell.dueDateLabel!.text = NoteDateHelper.convertDate(date: Date.init(seconds: object.dueDate))
@@ -157,8 +159,10 @@ class MasterViewController: UITableViewController {
                 }else{
                     if(object.dueDate-Date().toSeconds()<=0){
                         cell.timeRemainingLabel!.textColor = .systemRed
+                    }else if(object.dueDate-Date().toSeconds()<=10800){
+                        cell.timeRemainingLabel!.textColor = .systemOrange
                     }else{
-                        cell.timeRemainingLabel!.textColor = .black
+                        cell.timeRemainingLabel!.textColor = .label
                     }
                 }
                 cell.dueDateLabel!.text = NoteDateHelper.convertDate(date: Date.init(seconds: object.dueDate))

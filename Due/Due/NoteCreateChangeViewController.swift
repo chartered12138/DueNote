@@ -8,16 +8,17 @@
 import UIKit
 
 class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
-
-   
-
+    
+    
+    
     @IBOutlet weak var noteTitleTextField: UITextField!
     @IBOutlet weak var noteTextTextView: UITextView!
     @IBOutlet weak var noteDoneButton: UIButton!
     @IBOutlet weak var DueDate: UIDatePicker!
+
     
     private(set) var changingNote : DueNote?
-
+    
     @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
         if self.changingNote != nil {
             // change mode
@@ -53,14 +54,14 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
             noteText:      noteTextTextView.text,
             isSubmitted: false,
             dueDate: DueDate.date.toSeconds())
-
+        
         NoteStorage.storage.addNote(noteToBeAdded: note)
         
         performSegue(
             withIdentifier: "backToMasterView",
             sender: self)
     }
-
+    
     private func changeItem() -> Void {
         // get changed note instance
         if let changingNote = self.changingNote {
@@ -82,7 +83,11 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        noteTextTextView.isScrollEnabled = true
+        noteTextTextView.text = "Description"
+        noteTextTextView.textColor = UIColor.lightGray
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
         // set text view delegate so that we can react on text change
         noteTextTextView.delegate = self
         noteTextTextView.backgroundColor = UIColor.systemGray6
@@ -99,24 +104,35 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
             noteDoneButton.isEnabled = true
         } else {
             // in create mode: set initial time stamp label
-//            noteDateLabel.text = NoteDateHelper.convertDate(date:DueDate.date)
+            //            noteDateLabel.text = NoteDateHelper.convertDate(date:DueDate.date)
         }
         
         // initialize text view UI - border width, radius and color
-        noteTextTextView.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
-        noteTextTextView.layer.borderWidth = 1.0
-        noteTextTextView.layer.cornerRadius = 15
-        noteTitleTextField.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
-        noteTitleTextField.layer.borderWidth = 1.0
-        noteTitleTextField.layer.cornerRadius = 15
-
-
+        //        noteTextTextView.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
+        //        noteTextTextView.layer.borderWidth = 1.0
+        //        noteTextTextView.layer.cornerRadius = 15
+        //        noteTitleTextField.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
+        //        noteTitleTextField.layer.borderWidth = 1.0
+        //        noteTitleTextField.layer.cornerRadius = 15
+        
+        
         // For back button in navigation bar, change text
         let backButton = UIBarButtonItem()
         backButton.title = "Back"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
-
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if noteTextTextView.textColor == UIColor.lightGray {
+//            noteTextTextView.text = ""
+            noteTextTextView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if noteTextTextView.text == "" {
+            noteTextTextView.text = "Description"
+            noteTextTextView.textColor = UIColor.lightGray
+        }
+    }
     //Handle the text changes here
     func textViewDidChange(_ textView: UITextView) {
         if self.changingNote != nil {
@@ -131,5 +147,5 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
             }
         }
     }
-
+    
 }

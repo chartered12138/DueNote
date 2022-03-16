@@ -1,1 +1,3 @@
-This app I am building looks like the IOS innate app Notes, but this app is used to work like reminder, for users to put tasks in a table as a to-do list. The cells in the table view is able to present the title, a due date, and a count down of remaining time for each tasks. I would like to allow users to enter items as tasks with a time constraint with regular notes content area. This idea is generated to address an issue surrounding me all the time: when I want to add a task or assignment to calendar or reminder, I cannot enter large amount of text that might be the instructions or the work that I am about to do and the notes app cannot remind me of the deadline. 
+This app uses cocoapods WhatsNewKit framework to display the splash screen
+
+In order to run this project, open DueNote/Due/Due.xcworkspace in xcode instead

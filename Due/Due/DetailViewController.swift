@@ -8,12 +8,29 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
+    let defaultGrayScale = UserDefaults.standard.integer(forKey: "gray_scale")
+   // read gray scale background color from settings, default gray6
+    func defaultBackGroundGray(grayScale: Int)->UIColor{
+        if (grayScale == 1){
+            return .systemGray
+        }else if (grayScale == 2){
+            return .systemGray2
+        }else if (grayScale == 3){
+            return .systemGray3
+        }else if (grayScale == 4){
+            return .systemGray4
+        }else if (grayScale == 5){
+            return .systemGray5
+        }else{
+            return .systemGray6
+        }
+    }
     @IBOutlet weak var noteTitleLabel: UILabel!
     @IBOutlet weak var noteTextTextView: UITextView!
     @IBOutlet weak var noteDate: UILabel!
     @IBOutlet weak var timeRemaining: UILabel!
     var timer = Timer()
+    // given seconds difference, return a string displayed on screen
     func timeRemainingToStr(isSubmitted:Bool,secondsDifference: Int64) -> String{
         if (isSubmitted){
             return "Submitted!"
@@ -59,8 +76,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        view.backgroundColor = UIColor.systemGray6
-        noteTextTextView.backgroundColor = UIColor.systemGray6
+        view.backgroundColor = defaultBackGroundGray(grayScale: defaultGrayScale)
+        noteTextTextView.backgroundColor = defaultBackGroundGray(grayScale: defaultGrayScale)
         configureView()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(configureView), userInfo: nil, repeats: true);
     }
@@ -72,7 +89,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    
+    // segue that to chagne the due
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showChangeNoteSegue" {
             let changeNoteViewController = segue.destination as! NoteCreateChangeViewController

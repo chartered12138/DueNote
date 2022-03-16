@@ -8,6 +8,7 @@
 import Foundation
 
 class DueNote {
+    
     private(set) var noteId        : UUID
     private(set) var noteTitle     : String
     private(set) var noteText      : String

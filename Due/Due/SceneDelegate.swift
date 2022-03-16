@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import WhatsNewKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -39,6 +39,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        let stanDefaults = UserDefaults.standard
+        print("\(stanDefaults.integer(forKey: "gray_scale"))")
+        print("\(stanDefaults.string(forKey: "developer"))")
+        // update number of launches in user default
+        let numberOfLaunches = UserDefaults.standard.integer(forKey: "numberOfLaunches")
+        print("Number of launches: "+String(numberOfLaunches))
+        UserDefaults.standard.set(numberOfLaunches+1, forKey: "numberOfLaunches")
+        
+      
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

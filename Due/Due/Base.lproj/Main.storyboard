@@ -1,55 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UvX-aP-IA0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2R-wx-KyN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="hKc-ll-93D">
-            <objects>
-                <navigationController id="Er0-d0-2Io" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bfv-6G-Zuy">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="kdQ-PW-hhD" kind="relationship" relationship="rootViewController" id="uaE-Oi-70Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eVo-Oc-82G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="255" y="-774"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="ULY-6D-Plf">
-            <objects>
-                <splitViewController allowDoubleColumnStyle="YES" id="UvX-aP-IA0" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="Er0-d0-2Io" kind="relationship" relationship="masterViewController" id="1gE-lC-Isl"/>
-                        <segue destination="9uq-9z-9bh" kind="showDetail" identifier="secondarySegue" id="Rzj-vW-L2O"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8oy-WU-QdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-706" y="-320"/>
-        </scene>
         <!--Detail-->
         <scene sceneID="VXC-5V-2NK">
             <objects>
                 <viewController storyboardIdentifier="detailViewController" title="Detail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9uq-9z-9bh" customClass="DetailViewController" customModule="Due" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9On-gt-Kgx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LaD-MX-XUI">
-                                <rect key="frame" x="20" y="0.0" width="354" height="808"/>
+                                <rect key="frame" x="20" y="88" width="374" height="788"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rf-am-u62">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Cn4-Rp-V27">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="40"/>
@@ -64,7 +36,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHo-f6-fIq">
-                                        <rect key="frame" x="0.0" y="70" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6ch-Up-fTX">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="30"/>
@@ -79,7 +51,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0J-el-NgC">
-                                        <rect key="frame" x="0.0" y="120" width="354" height="70"/>
+                                        <rect key="frame" x="0.0" y="120" width="374" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="trt-U0-vPD">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="50"/>
@@ -91,29 +63,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-qQ-fLm">
-                                        <rect key="frame" x="0.0" y="190" width="354" height="70"/>
+                                        <rect key="frame" x="0.0" y="190" width="374" height="75"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="Jsm-fz-QyY"/>
+                                            <constraint firstAttribute="height" constant="75" id="Jsm-fz-QyY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqy-ef-7jF" userLabel="Note Text View">
-                                        <rect key="frame" x="0.0" y="260" width="354" height="501"/>
+                                        <rect key="frame" x="0.0" y="265" width="374" height="463"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-cQ-HQy">
-                                        <rect key="frame" x="0.0" y="761" width="354" height="47"/>
+                                        <rect key="frame" x="0.0" y="728" width="374" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="90E-Qc-mzB"/>
+                                            <constraint firstAttribute="height" constant="60" id="90E-Qc-mzB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="pencil" catalog="system" symbolScale="large" renderingMode="template"/>
-                                        </state>
+                                        <buttonConfiguration key="configuration" style="tinted" image="pencil" catalog="system" cornerStyle="large">
+                                            <backgroundConfiguration key="background"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20" scale="large" weight="black"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="raP-E6-mT4" kind="show" identifier="showChangeNoteSegue" id="0dN-s6-dAu"/>
                                         </connections>
@@ -124,9 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="ZMW-Xl-QO3"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="LaD-MX-XUI" secondAttribute="trailing" constant="20" id="2k3-P0-xIG"/>
+                            <constraint firstItem="ZMW-Xl-QO3" firstAttribute="trailing" secondItem="LaD-MX-XUI" secondAttribute="trailing" constant="20" id="2k3-P0-xIG"/>
                             <constraint firstItem="LaD-MX-XUI" firstAttribute="leading" secondItem="ZMW-Xl-QO3" secondAttribute="leading" constant="20" id="HoK-lj-DQU"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="LaD-MX-XUI" secondAttribute="bottom" id="gxb-wl-0Bn"/>
+                            <constraint firstAttribute="bottom" secondItem="LaD-MX-XUI" secondAttribute="bottom" constant="20" id="gxb-wl-0Bn"/>
                             <constraint firstItem="LaD-MX-XUI" firstAttribute="top" secondItem="ZMW-Xl-QO3" secondAttribute="top" id="mdi-BK-a0L"/>
                         </constraints>
                     </view>
@@ -141,20 +113,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="536-mG-LeB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253.62318840579712" y="2.6785714285714284"/>
+            <point key="canvasLocation" x="-461" y="133"/>
         </scene>
         <!--Note Create Change View Controller-->
         <scene sceneID="29Q-FJ-8Cz">
             <objects>
                 <viewController id="raP-E6-mT4" customClass="NoteCreateChangeViewController" customModule="Due" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8QZ-nL-BjP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ceT-ga-e42">
-                                <rect key="frame" x="20" y="0.0" width="374" height="840.5"/>
+                                <rect key="frame" x="20" y="88" width="374" height="788"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Due" textAlignment="center" minimumFontSize="15" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-yd-mdb">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Due" textAlignment="center" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-yd-mdb">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="WMH-hr-xlR">
@@ -163,7 +135,7 @@
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         </variation>
@@ -172,17 +144,11 @@
                                             <action selector="textTitleChanged:forEvent:" destination="raP-E6-mT4" eventType="valueChanged" id="tnG-H0-Nhu"/>
                                         </connections>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0gW-FX-A2V">
-                                        <rect key="frame" x="0.0" y="70" width="374" height="266"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rz1-6I-amw">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="140"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Due Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIu-p8-5A8">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="tav-jr-r8A">
-                                                        <variation key="heightClass=compact-widthClass=compact" constant="30"/>
-                                                        <variation key="heightClass=compact-widthClass=regular" constant="30"/>
-                                                    </constraint>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="140"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -190,8 +156,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 </variation>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="fill" datePickerMode="dateAndTime" minuteInterval="5" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="APE-Om-2vZ">
-                                                <rect key="frame" x="0.0" y="50" width="374" height="216"/>
+                                            <datePicker contentMode="scaleAspectFit" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="APE-Om-2vZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="Eey-aQ-98I">
                                                         <variation key="heightClass=compact-widthClass=compact" constant="100"/>
@@ -201,26 +167,26 @@
                                             </datePicker>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocw-K7-i6O">
-                                        <rect key="frame" x="0.0" y="336" width="374" height="482"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="ocw-K7-i6O">
+                                        <rect key="frame" x="0.0" y="210" width="374" height="518"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="482" id="iIh-ha-bmX">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="150"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="150"/>
-                                            </constraint>
-                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjY-bQ-xYg">
-                                        <rect key="frame" x="0.0" y="818" width="374" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="728" width="374" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22.329999999999998" id="EMw-4u-fqe"/>
+                                            <constraint firstAttribute="height" constant="60" id="EMw-4u-fqe"/>
                                         </constraints>
                                         <state key="normal">
                                             <imageReference key="image" image="checkmark" catalog="system" symbolScale="large"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                            <imageReference key="image" image="checkmark" catalog="system" symbolScale="large"/>
+                                            <backgroundConfiguration key="background"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20" scale="large" weight="black"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="doneButtonClicked:forEvent:" destination="raP-E6-mT4" eventType="touchUpInside" id="Cm1-Km-khE"/>
                                         </connections>
@@ -232,7 +198,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="j51-GN-VgI" firstAttribute="trailing" secondItem="ceT-ga-e42" secondAttribute="trailing" constant="20" id="LHO-Vm-Xaq"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="ceT-ga-e42" secondAttribute="bottom" id="RRa-jD-vx2"/>
+                            <constraint firstAttribute="bottom" secondItem="ceT-ga-e42" secondAttribute="bottom" constant="20" id="RRa-jD-vx2"/>
                             <constraint firstItem="ceT-ga-e42" firstAttribute="top" secondItem="j51-GN-VgI" secondAttribute="top" id="UGR-x3-Di1"/>
                             <constraint firstItem="ceT-ga-e42" firstAttribute="leading" secondItem="j51-GN-VgI" secondAttribute="leading" constant="20" id="q4e-sX-eT9"/>
                         </constraints>
@@ -243,7 +209,7 @@
                         <outlet property="noteDoneButton" destination="QjY-bQ-xYg" id="nLU-P4-Anx"/>
                         <outlet property="noteTextTextView" destination="ocw-K7-i6O" id="Aau-bV-3Wb"/>
                         <outlet property="noteTitleTextField" destination="hHh-yd-mdb" id="DXJ-ly-G0Q"/>
-                        <segue destination="kdQ-PW-hhD" kind="show" identifier="backToMasterView" id="31T-QN-Jgm"/>
+                        <segue destination="a2R-wx-KyN" kind="show" identifier="backToMasterView" id="31T-QN-Jgm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aau-cd-vjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +221,7 @@
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="kdQ-PW-hhD" customClass="MasterViewController" customModule="Due" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9TX-xe-W3j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -325,6 +291,7 @@
                                     <outlet property="timeRemainingLabel" destination="Pic-x9-SPl" id="te8-LP-IW1"/>
                                     <outlet property="titleLabel" destination="qRL-Wa-akr" id="k9o-Ap-7ei"/>
                                     <segue destination="raP-E6-mT4" kind="show" identifier="showCreateNoteSegue" trigger="accessoryAction" id="EbY-wr-f2Q"/>
+                                    <segue destination="9uq-9z-9bh" kind="show" identifier="showDetail" id="666-Xt-53V"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -338,15 +305,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adX-WW-N2G" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1155" y="-763"/>
+            <point key="canvasLocation" x="630" y="-867"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gyb-ND-RFo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a2R-wx-KyN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bR9-x4-P2w"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="caO-UI-yCN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kdQ-PW-hhD" kind="relationship" relationship="rootViewController" id="CWZ-i0-KaJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dvo-xH-EeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-571" y="-873"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="31T-QN-Jgm"/>
         <segue reference="0dN-s6-dAu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

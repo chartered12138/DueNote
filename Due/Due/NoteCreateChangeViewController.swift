@@ -9,22 +9,43 @@ import UIKit
 
 class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
     
+    let defaultGrayScale = UserDefaults.standard.integer(forKey: "gray_scale")
+   
+    func defaultBackGroundGray(grayScale: Int)->UIColor{
+        if (grayScale == 1){
+            return .systemGray
+        }else if (grayScale == 2){
+            return .systemGray2
+        }else if (grayScale == 3){
+            return .systemGray3
+        }else if (grayScale == 4){
+            return .systemGray4
+        }else if (grayScale == 5){
+            return .systemGray5
+        }else{
+            return .systemGray6
+        }
+    }
     
     
     @IBOutlet weak var noteTitleTextField: UITextField!
     @IBOutlet weak var noteTextTextView: UITextView!
     @IBOutlet weak var noteDoneButton: UIButton!
     @IBOutlet weak var DueDate: UIDatePicker!
-
-    
+    // go back to master page if click on checkmark icon
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToMasterView" {
+            let vc = segue.destination as! UINavigationController
+            vc.modalPresentationStyle = .fullScreen
+            
+        }
+    }
     private(set) var changingNote : DueNote?
-    
+    // manage changing state of create state
     @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
         if self.changingNote != nil {
-            // change mode
             noteDoneButton.isEnabled = true
         } else {
-            // create mode
             if ( sender.text?.isEmpty ?? true ) || ( noteTextTextView.text?.isEmpty ?? true ) {
                 noteDoneButton.isEnabled = false
             } else {
@@ -32,11 +53,10 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
             }
         }
     }
-    
+    // change note or create note
     @IBAction func doneButtonClicked(_ sender: UIButton, forEvent event: UIEvent) {
-        // distinguish change mode and create mode
+       
         if self.changingNote != nil {
-            // change mode - change the item
             changeItem()
         } else {
             // create mode - create the item
@@ -47,7 +67,7 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
     func setChangingNote(changingNote : DueNote) {
         self.changingNote = changingNote
     }
-    
+    // add task
     private func addItem() -> Void {
         let note = DueNote(
             noteTitle:     noteTitleTextField.text!,
@@ -61,11 +81,9 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
             withIdentifier: "backToMasterView",
             sender: self)
     }
-    
+    // change task
     private func changeItem() -> Void {
-        // get changed note instance
         if let changingNote = self.changingNote {
-            // change the note through note storage
             NoteStorage.storage.changeNote(
                 noteToBeChanged: DueNote(
                     noteId:        changingNote.noteId,
@@ -74,7 +92,6 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
                     isSubmitted: changingNote.isSubmitted,
                     dueDate: DueDate.date.toSeconds()))
             
-            // navigate back to list of notes
             performSegue(
                 withIdentifier: "backToMasterView",
                 sender: self)
@@ -83,57 +100,42 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         noteTextTextView.isScrollEnabled = true
         noteTextTextView.text = "Description"
         noteTextTextView.textColor = UIColor.lightGray
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-        // set text view delegate so that we can react on text change
         noteTextTextView.delegate = self
-        noteTextTextView.backgroundColor = UIColor.systemGray6
-        noteTitleTextField.backgroundColor = UIColor.systemGray6
-        view.backgroundColor = UIColor.systemGray6
-        // check if we are in create mode or in change mode
+        noteTextTextView.backgroundColor = defaultBackGroundGray(grayScale: defaultGrayScale)
+        noteTitleTextField.backgroundColor = defaultBackGroundGray(grayScale: defaultGrayScale)
+        view.backgroundColor = defaultBackGroundGray(grayScale: defaultGrayScale)
+        // fill existing data in the page
         if let changingNote = self.changingNote {
-            // in change mode: initialize for fields with data coming from note to be changed
-            
             noteTextTextView.text = changingNote.noteText
             noteTitleTextField.text = changingNote.noteTitle
             DueDate.date = Date(seconds: changingNote.dueDate)
-            // enable done button by default
             noteDoneButton.isEnabled = true
-        } else {
-            // in create mode: set initial time stamp label
-            //            noteDateLabel.text = NoteDateHelper.convertDate(date:DueDate.date)
         }
-        
-        // initialize text view UI - border width, radius and color
-        //        noteTextTextView.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
-        //        noteTextTextView.layer.borderWidth = 1.0
-        //        noteTextTextView.layer.cornerRadius = 15
-        //        noteTitleTextField.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
-        //        noteTitleTextField.layer.borderWidth = 1.0
-        //        noteTitleTextField.layer.cornerRadius = 15
-        
+   
         
         // For back button in navigation bar, change text
         let backButton = UIBarButtonItem()
         backButton.title = "Back"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if noteTextTextView.textColor == UIColor.lightGray {
-//            noteTextTextView.text = ""
-            noteTextTextView.textColor = UIColor.black
-        }
+        noteTextTextView.textColor = UIColor.label
     }
+    // if text area is empty, given default "Description"
     func textViewDidEndEditing(_ textView: UITextView) {
         if noteTextTextView.text == "" {
             noteTextTextView.text = "Description"
-            noteTextTextView.textColor = UIColor.lightGray
+            noteTextTextView.textColor = UIColor.systemGray2
         }
     }
-    //Handle the text changes here
+    //Handle done button enable for changing mode and creating mode
     func textViewDidChange(_ textView: UITextView) {
         if self.changingNote != nil {
             // change mode
@@ -146,6 +148,8 @@ class NoteCreateChangeViewController : UIViewController, UITextViewDelegate {
                 noteDoneButton.isEnabled = true
             }
         }
+        
     }
+    
     
 }
